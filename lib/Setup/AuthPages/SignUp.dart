@@ -21,7 +21,7 @@ class _RegisterState extends State<Register>{
           child: 
             Center( 
               child:Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Text('Registration',
                     style: TextStyle(

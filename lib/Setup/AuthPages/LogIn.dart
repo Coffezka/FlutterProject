@@ -21,7 +21,7 @@ class _LoginPageState extends State <LoginPage>{
         key: _formKey,
         child: Center (
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Text('LOG IN',
                     style: TextStyle(
@@ -29,6 +29,7 @@ class _LoginPageState extends State <LoginPage>{
                         fontSize: 34
                    ),
               ),
+            
               TextFormField(
                 validator: (input) {
                   if(input.isEmpty){
@@ -36,6 +37,7 @@ class _LoginPageState extends State <LoginPage>{
                   }
                 },
                 decoration: InputDecoration(
+                  
                   labelText: 'Email',
                   border: OutlineInputBorder(),
                 ),
