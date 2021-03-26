@@ -26,20 +26,20 @@ class _HomeState extends State<Home>{
         },
         items: [
           BottomNavigationBarItem(
-            title: Text('Favorites'),
-            icon: Icon(Icons.favorite),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Music'),
-            icon: Icon(Icons.music_note),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Places'),
-            icon: Icon(Icons.location_on),
-          ),
-          BottomNavigationBarItem(
             title: Text('News'),
             icon: Icon(Icons.library_books),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Calendar'),
+            icon: Icon(Icons.calendar_view_day),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Ticket'),
+            icon: Icon(Icons.library_add),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Profile'),
+            icon: Icon(Icons.account_circle_outlined),
           ),
         ],
       ),
