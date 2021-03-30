@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Setup/Pages/Calendar/Calendar.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:flutter_auth/Setup/Pages/Home.dart';
 
-class Home extends StatefulWidget{
+class Calendar extends StatefulWidget{
   @override
-  _HomeState createState() => _HomeState();
+  _CalendarState createState() => _CalendarState();
 }
-class _HomeState extends State<Home>{
+class _CalendarState extends State<Calendar>{
   int _currentIndex = 0;
 
   @override 
@@ -45,7 +46,9 @@ class _HomeState extends State<Home>{
       ),
       body: Container(
         child: Center(
-          child: Text("Hello World")
+          child: SfCalendar(
+            backgroundColor: Colors.grey,
+          ),
         )
       ),
     );
@@ -55,14 +58,15 @@ class _HomeState extends State<Home>{
     colorScheme: _shrineColorScheme,
     textTheme: _buildShrineTextTheme(base.textTheme),
   );
-  }
+}
+
   }
   void _onTap(int index) {
     switch (index) {
       case 0:
+        Navigator.push(context,MaterialPageRoute(builder: (context)=> Home()));
         break;
       case 1:
-        Navigator.push(context,MaterialPageRoute(builder: (context)=> Calendar()));
         break;
       case 2:
         
