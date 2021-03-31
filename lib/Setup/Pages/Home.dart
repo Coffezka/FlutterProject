@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Setup/Pages/Calendar/Calendar.dart';
+import 'package:flutter_auth/Setup/Pages/WidgetButtomNavBar.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -13,39 +14,12 @@ class _HomeState extends State<Home>{
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        backgroundColor: colorScheme.surface,
-        selectedItemColor: colorScheme.onSurface,
-        unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
-        selectedLabelStyle: textTheme.caption,
-        unselectedLabelStyle: textTheme.caption,
-        onTap: _onTap,
-        items: [
-          BottomNavigationBarItem(
-            title: Text('News'),
-            icon: Icon(Icons.library_books),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Calendar'),
-            icon: Icon(Icons.calendar_view_day),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Ticket'),
-            icon: Icon(Icons.library_add),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Profile'),
-            icon: Icon(Icons.account_circle_outlined),
-          ),
-        ],
-      ),
+      bottomNavigationBar: NavBarWidget(colorScheme,_currentIndex,textTheme,context),
       appBar: AppBar(
       ),
       body: Container(
         child: Center(
-          child: Text("Hello World")
+          child: Text("")
         )
       ),
     );

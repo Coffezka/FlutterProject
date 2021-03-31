@@ -29,6 +29,8 @@ class _RegisterState extends State<Register>{
                         fontSize: 34
                    ),
                 ),
+                Column( 
+                  children: <Widget>[
                 TextFormField(
                   validator: (input) {
                     if(input.isEmpty){
@@ -41,7 +43,7 @@ class _RegisterState extends State<Register>{
                   ),
                   onSaved: (input) => _email = input,
                 ),
-
+                SizedBox(height:10),
                 TextFormField(
                   validator: (input) {
                     if(input.length < 6){
@@ -54,6 +56,8 @@ class _RegisterState extends State<Register>{
                   ),
                   onSaved: (input) => _password = input,
                   obscureText: true,
+                ),
+                ]
                 ),
                 MaterialButton(
                     height: 60.0, 

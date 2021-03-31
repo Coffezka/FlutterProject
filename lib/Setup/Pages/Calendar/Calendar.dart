@@ -1,83 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:flutter_auth/Setup/Pages/Home.dart';
+import 'package:flutter_auth/Setup/Pages/WidgetButtomNavBar.dart';
 
 class Calendar extends StatefulWidget{
   @override
   _CalendarState createState() => _CalendarState();
 }
 class _CalendarState extends State<Calendar>{
-  int _currentIndex = 0;
+  int _currentIndex = 1;
 
   @override 
   Widget build(BuildContext context){
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        backgroundColor: colorScheme.surface,
-        selectedItemColor: colorScheme.onSurface,
-        unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
-        selectedLabelStyle: textTheme.caption,
-        unselectedLabelStyle: textTheme.caption,
-        onTap: _onTap,
-        items: [
-          BottomNavigationBarItem(
-            title: Text('News'),
-            icon: Icon(Icons.library_books),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Calendar'),
-            icon: Icon(Icons.calendar_view_day),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Ticket'),
-            icon: Icon(Icons.library_add),
-          ),
-          BottomNavigationBarItem(
-            title: Text('Profile'),
-            icon: Icon(Icons.account_circle_outlined),
-          ),
-        ],
-      ),
-      appBar: AppBar(
-      ),
+      bottomNavigationBar: NavBarWidget(colorScheme,_currentIndex,textTheme,context),
       body: Container(
         child: Center(
           child: SfCalendar(
-            backgroundColor: Colors.grey,
+            dataSource: _getCalendarDataSource(),
           ),
         )
       ),
     );
-    ThemeData _buildShrineTheme() {
+  }
+  ThemeData _buildShrineTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
     colorScheme: _shrineColorScheme,
     textTheme: _buildShrineTextTheme(base.textTheme),
   );
-}
-
-  }
-  void _onTap(int index) {
-    switch (index) {
-      case 0:
-        Navigator.push(context,MaterialPageRoute(builder: (context)=> Home()));
-        break;
-      case 1:
-        break;
-      case 2:
-        
-        break;
-      case 3:
-        
-        break;
-    }
-    setState(() {
-      _currentIndex = index;
-    });
   }
 }
 
@@ -101,6 +53,44 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
         bodyColor: shrineBrown900,
       );
 }
+
+class DataSource extends CalendarDataSource {
+ DataSource(List<Appointment> source) {
+   appointments = source;
+ }
+}
+
+DataSource _getCalendarDataSource() {
+   List<Appointment> appointments = <Appointment>[];
+   appointments.add(Appointment(
+     startTime: DateTime.now(),
+     endTime: DateTime.now().add(Duration(hours: 2)),
+     subject: 'Fitness',
+     color: Colors.red,
+     startTimeZone: '',
+     endTimeZone: '',
+   ));
+
+  appointments.add(Appointment(
+     startTime: DateTime.now().add(Duration(hours: 2)),
+     endTime: DateTime.now().add(Duration(hours: 4)),
+     subject: 'CrossFit',
+     color: Colors.purple,
+     startTimeZone: '',
+     endTimeZone: '',
+   ));
+  
+  appointments.add(Appointment(
+     startTime: DateTime.now().add(Duration(days: 1)),
+     endTime: DateTime.now().add(Duration(days: 1,hours: 4)),
+     subject: 'Bicycle',
+     color: Colors.green,
+     startTimeZone: '',
+     endTimeZone: '',
+   ));
+
+   return DataSource(appointments);
+ }
 
 const ColorScheme _shrineColorScheme = ColorScheme(
   primary: shrinePink100,

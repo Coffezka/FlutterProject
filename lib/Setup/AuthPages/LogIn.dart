@@ -27,7 +27,7 @@ class _LoginPageState extends State <LoginPage>{
                         fontSize: 34
                    ),
               ),
-            
+              Column( children: <Widget>[
               TextFormField(
                 validator: (input) {
                   if(input.isEmpty){
@@ -41,6 +41,7 @@ class _LoginPageState extends State <LoginPage>{
                 ),
                 onSaved: (input) => _email = input,
               ),
+              SizedBox(height: 10),
               TextFormField(
                 
                 validator: (input) {
@@ -55,7 +56,8 @@ class _LoginPageState extends State <LoginPage>{
                 onSaved: (input) => _password = input,
                 obscureText: true,
               ),
- 
+              ]
+              ),
               MaterialButton(
                     height: 60.0, 
                     minWidth: 300.0, 
