@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Setup/Pages/WidgetButtomNavBar.dart';
 
-class Home extends StatefulWidget{
+class Profile extends StatefulWidget{
   @override
-  _HomeState createState() => _HomeState();
+  _ProfileState createState() => _ProfileState();
 }
-class _HomeState extends State<Home>{
-  int _currentIndex = 0;
+class _ProfileState extends State<Profile>{
+  int _currentIndex = 3;
 
   @override 
   Widget build(BuildContext context){
@@ -17,9 +17,59 @@ class _HomeState extends State<Home>{
       appBar: AppBar(
       ),
       body: Container(
-        child: Center(
-          child: Text("")
-        )
+          margin: const EdgeInsets.all(10.0),
+          child: Column(
+            children: <Widget>[
+              Card(
+                child: Column(
+                  
+                  children: <Widget>[
+                    CircleAvatar(
+                        radius: 50,
+                        backgroundImage: NetworkImage("https://www.woolha.com/media/2020/03/eevee.png"),
+                      ),
+                    ListTile(
+                      title: Text('Elon Musk',
+                        style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                          )
+                      ),
+                      subtitle: Text('Info'),
+                    ),
+                    ListTile(
+                        title: Text('GymPoints',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w900,
+                          )
+                        ),
+                        subtitle: Text('1500'),
+                    ),
+                    ListTile(
+                        title: Text('Hours in the gym',
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.w900,
+                          )   
+                          ),
+                        subtitle: Text('36'),
+                    ),
+                  ]
+                ),
+              ),
+              Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      title: Text('Attendance'),
+                    ),
+                    
+                  ],
+                ),
+              ),
+            ]
+          ),
       ),
     );
   }

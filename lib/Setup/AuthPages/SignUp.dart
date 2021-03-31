@@ -84,7 +84,7 @@ class _RegisterState extends State<Register>{
     if(formState.validate()){
       formState.save();
       try{
-        UserCredential user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          UserCredential user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _email,
           password: _password
         );

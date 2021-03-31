@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Setup/Pages/Calendar/Calendar.dart';
 import 'package:flutter_auth/Setup/Pages/Home.dart';
+import 'package:flutter_auth/Setup/Pages/Profile.dart';
 
 Widget NavBarWidget(ColorScheme colorScheme, int _currentIndex, TextTheme textTheme, context){
   
@@ -24,7 +25,7 @@ Widget NavBarWidget(ColorScheme colorScheme, int _currentIndex, TextTheme textTh
                 
                 break;
               case 3:
-                
+                Navigator.push(context,MaterialPageRoute(builder: (context)=> Profile()));
                 break;
             }
           }
@@ -39,8 +40,8 @@ Widget NavBarWidget(ColorScheme colorScheme, int _currentIndex, TextTheme textTh
               icon: Icon(Icons.calendar_view_day),
             ),
             BottomNavigationBarItem(
-              title: Text('Settings'),
-              icon: Icon(Icons.settings),
+              title: Text('Store'),
+              icon: Icon(Icons.store),
             ),
             BottomNavigationBarItem(
               title: Text('Profile'),
